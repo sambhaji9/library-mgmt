@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BooksListService } from './books-list.service';
-import { IBooksList } from './books-list.model';
+import { ISubjectArea } from './books-list.model';
 
 @Component({
 	selector: 'app-books-list',
@@ -9,7 +9,7 @@ import { IBooksList } from './books-list.model';
 })
 export class BooksListComponent implements OnInit {
 
-	booksList: IBooksList[] = [];
+	booksList: ISubjectArea[] = [];
 
 	constructor(private booksListService: BooksListService) { }
 
