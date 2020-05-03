@@ -2,8 +2,12 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+import { BooksListComponent } from 'src/app/books/books-list/books-list.component';
+
 export const environment = {
-  production: false
+  production: false,
+  url: 'http://127.0.0.1:3000/',
+  subjectAreas: 'subjectAreas'
 };
 
 /*
