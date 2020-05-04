@@ -1,0 +1,7 @@
+<div>
+	<ul>
+		<li *ngFor="let subjectArea of subjectAreaList" (click)="loadBooksList(subjectArea)">
+			{{subjectArea.name}}
+		</li>
+	</ul>
+</div>

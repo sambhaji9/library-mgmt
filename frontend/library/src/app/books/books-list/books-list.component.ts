@@ -9,17 +9,8 @@ import { ISubjectArea } from './books-list.model';
 })
 export class BooksListComponent implements OnInit {
 
-	booksList: ISubjectArea[] = [];
-
 	constructor(private booksListService: BooksListService) { }
 
 	ngOnInit() {
-		this.booksListService.getSubjectAreas().subscribe((results) => {
-			this.booksList = results;
-		});
-	}
-
-	eventCall(book) {
-		console.log(book.name);
 	}
 }
