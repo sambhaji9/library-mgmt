@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SubjectAreasService } from './subject-areas.service';
-import { ISubjectArea } from '../books-list/books-list.model';
+import { ISubjectArea } from './subject-area.model';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-subject-areas',
@@ -11,7 +12,8 @@ export class SubjectAreasComponent implements OnInit {
 
 	subjectAreaList: ISubjectArea[] = [];
 
-	constructor(private subjectAreasService: SubjectAreasService) { }
+	constructor(private readonly subjectAreasService: SubjectAreasService,
+		private readonly router: Router) { }
 
 	ngOnInit() {
 		this.subjectAreasService.getSubjectAreas().subscribe((results) => {
@@ -19,8 +21,8 @@ export class SubjectAreasComponent implements OnInit {
 		});
 	}
 
-	loadBooksList(subjectArea: ISubjectArea) {
-		console.log(subjectArea.databaseName);
+	goToBooksList(subjectArea: ISubjectArea) {
+		this.router.navigate(['/subject/', subjectArea]);
 	}
 
 }
