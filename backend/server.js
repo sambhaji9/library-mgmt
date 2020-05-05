@@ -31,14 +31,14 @@ app.get('/subjectAreas', function (request, response) {
 });
 
 app.get('/subject', function (request, response) {
-	var subject = request.query.subject;
+	var name = request.query.name;
 
-	if (typeof subject !== 'undefined') {
+	if (typeof name !== 'undefined') {
 		mongoClient.connect(url, function (err, database) {
 			if (err) throw err;
 
 			var dbo = database.db(databaseName);
-			dbo.collection(subject).find({}).toArray(function (err, results) {
+			dbo.collection(name).find({}).toArray(function (err, results) {
 				if (err) throw err;
 
 				response.send(results);

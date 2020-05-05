@@ -7,7 +7,8 @@ import { BooksListComponent } from 'src/app/books/books-list/books-list.componen
 export const environment = {
   production: false,
   url: 'http://127.0.0.1:3000/',
-  subjectAreas: 'subjectAreas'
+  subjectAreas: 'subjectAreas',
+  subject: 'subject'
 };
 
 /*

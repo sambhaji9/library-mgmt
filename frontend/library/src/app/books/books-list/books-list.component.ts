@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BooksListService } from './books-list.service';
-import { ISubjectArea } from './books-list.model';
+import { ActivatedRoute } from '@angular/router';
+import { ISubject } from './books-list.model';
 
 @Component({
 	selector: 'app-books-list',
@@ -9,8 +10,30 @@ import { ISubjectArea } from './books-list.model';
 })
 export class BooksListComponent implements OnInit {
 
-	constructor(private booksListService: BooksListService) { }
+	subject: ISubject = {
+		_id: '',
+		name: '',
+		databaseName: ''
+	};
+	booksList = [];
+	databaseName: string;
+
+	constructor(private booksListService: BooksListService,
+				private activateRoute: ActivatedRoute) { }
 
 	ngOnInit() {
+		this.activateRoute.paramMap.subscribe((paramObj) => {
+			this.subject._id = paramObj.get('_id');
+			this.subject.name = paramObj.get('name');
+			this.subject.databaseName = paramObj.get('databaseName');
+
+			this.getBooksList(this.subject.databaseName);
+		});
+	}
+
+	getBooksList(databaseName: string) {
+		this.booksListService.getBooksList(databaseName).subscribe(results => {
+			this.booksList = results;
+		});
 	}
 }
