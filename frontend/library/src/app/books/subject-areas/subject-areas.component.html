@@ -1,6 +1,6 @@
-<div>
-	<ul>
-		<li *ngFor="let subjectArea of subjectAreaList" (click)="goToBooksList(subjectArea)">
+<div class="list-container">
+	<ul class="list-group">
+		<li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let subjectArea of subjectAreaList" (click)="goToBooksList(subjectArea)">
 			{{subjectArea.name}}
 		</li>
 	</ul>

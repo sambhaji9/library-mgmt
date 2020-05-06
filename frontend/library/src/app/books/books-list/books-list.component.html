@@ -1,6 +1,11 @@
-<p>{{subject.name}}</p>
+<h5 class="subject-header">{{subject.name}}</h5>
 
-<table>
+<table class="table table-bordered table-hover books-table">
+    <tr>
+        <th>Name</th>
+        <th>Language</th>
+        <th>Description</th>
+    </tr>
     <tr *ngFor="let book of booksList">
         <td>{{book.name}}</td>
         <td>{{book.language}}</td>
