@@ -1,0 +1,17 @@
+img {
+    width: 30px;
+    height: 30px;
+}
+
+.navbar-content {
+    display: contents;
+    width: 100%;
+}
+
+.navbar {
+    justify-content: start;
+}
+
+.sticky-nav-bar {
+    position: sticky;
+}
