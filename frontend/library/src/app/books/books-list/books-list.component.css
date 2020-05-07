@@ -7,3 +7,7 @@
 .subject-header {
 	margin: 20px;
 }
+
+.header-section {
+    display: inline-flex;
+}

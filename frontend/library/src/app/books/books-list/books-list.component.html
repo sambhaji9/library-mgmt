@@ -1,14 +1,19 @@
-<h5 class="subject-header">{{subject.name}}</h5>
+<div class="header-section">
+	<h5 class="subject-header">{{subject.name}}</h5>
+	<h5 class="subject-header">({{booksList.length}})</h5>
+</div>
 
 <table class="table table-bordered table-hover books-table">
-    <tr>
-        <th>Name</th>
-        <th>Language</th>
-        <th>Description</th>
-    </tr>
-    <tr *ngFor="let book of booksList">
-        <td>{{book.name}}</td>
-        <td>{{book.language}}</td>
-        <td>{{book.description}}</td>
-    </tr>
+	<tr>
+		<th></th>
+		<th>Name</th>
+		<th>Language</th>
+		<th>Description</th>
+	</tr>
+	<tr *ngFor="let book of booksList">
+		<td><input type="checkbox"/></td>
+		<td>{{book.name}}</td>
+		<td>{{book.language}}</td>
+		<td>{{book.description}}</td>
+	</tr>
 </table>
