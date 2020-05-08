@@ -17,16 +17,33 @@ module.exports = function (config) {
     },
     coverageIstanbulReporter: {
       dir: require('path').join(__dirname, '../coverage/library'),
-      reports: ['html', 'lcovonly', 'text-summary'],
-      fixWebpackSourcePaths: true
+      reports: ['html', 'lcovonly', 'text-summary', 'text'],
+      fixWebpackSourcePaths: true,
+      thresholds: {
+        global: { // thresholds for all files
+          statements: 90,
+          lines: 90,
+          branches: 90,
+          functions: 90
+        },
+        each: { // threshold per file
+          statements: 90,
+          lines: 90,
+          branches: 90,
+          functions: 90
+        }
+      }
     },
     reporters: ['progress', 'kjhtml'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
-    autoWatch: true,
-    browsers: ['Chrome'],
-    singleRun: false,
-    restartOnFileChange: true
+    autoWatch: false,
+    browsers: ['ChromeHeadless'],
+    singleRun: true,
+    concurrency: Infinity,
+    captureTimeout: 180000,
+    browserDisconnectTimeout: 90000,
+    browserNoActivityTimeout: 180000
   });
 };
