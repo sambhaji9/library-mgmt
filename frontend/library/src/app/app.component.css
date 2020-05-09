@@ -15,3 +15,7 @@ img {
 .sticky-nav-bar {
     position: sticky;
 }
+
+.menu-items {
+    display: flex;
+}
