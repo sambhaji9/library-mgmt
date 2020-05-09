@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BooksListService } from './books-list.service';
 import { ActivatedRoute } from '@angular/router';
-import { ISubject } from './books-list.model';
+import { ISubject, IBook } from './books-list.model';
 
 @Component({
 	selector: 'app-books-list',
@@ -15,11 +15,11 @@ export class BooksListComponent implements OnInit {
 		name: '',
 		databaseName: ''
 	};
-	booksList = [];
+	booksList: IBook[] = [];
 	databaseName: string;
 
 	constructor(private booksListService: BooksListService,
-				private activateRoute: ActivatedRoute) { }
+		private activateRoute: ActivatedRoute) { }
 
 	ngOnInit() {
 		this.activateRoute.paramMap.subscribe((paramObj) => {
@@ -37,7 +37,7 @@ export class BooksListComponent implements OnInit {
 		});
 	}
 
-	isDisabled(book): boolean {
+	isDisabled(book: IBook): boolean {
 		return !book.availability
 	}
 }

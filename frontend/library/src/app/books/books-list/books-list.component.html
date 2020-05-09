@@ -1,6 +1,10 @@
-<div class="header-section">
+<div class="header-section justify-content-between">
 	<h5 class="subject-header">{{subject.name}}</h5>
 	<h5 class="subject-header">({{booksList.length}})</h5>
+	<div class="form-inline">
+		<input class="form-control mr-sm-2" type="search" placeholder="Search" [(ngModel)]="searchName"
+			aria-label="Search">
+	</div>
 </div>
 
 <table class="table table-bordered table-hover books-table">
@@ -11,8 +15,8 @@
 		<th>Description</th>
 		<th>Availability</th>
 	</tr>
-	<tr *ngFor="let book of booksList">
-		<td><input type="checkbox" [disabled]="isDisabled(book)"/></td>
+	<tr *ngFor="let book of (booksList | searchFilter: searchName)">
+		<td><input type="checkbox" [disabled]="isDisabled(book)" /></td>
 		<td>{{book.name}}</td>
 		<td>{{book.language}}</td>
 		<td>{{book.description}}</td>
