@@ -9,11 +9,13 @@
 		<th>Name</th>
 		<th>Language</th>
 		<th>Description</th>
+		<th>Availability</th>
 	</tr>
 	<tr *ngFor="let book of booksList">
-		<td><input type="checkbox"/></td>
+		<td><input type="checkbox" [disabled]="isDisabled(book)"/></td>
 		<td>{{book.name}}</td>
 		<td>{{book.language}}</td>
 		<td>{{book.description}}</td>
+		<td>{{book.availability ? "Available": "Unavailable"}}</td>
 	</tr>
 </table>

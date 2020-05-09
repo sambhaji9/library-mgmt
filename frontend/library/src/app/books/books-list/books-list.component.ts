@@ -36,4 +36,8 @@ export class BooksListComponent implements OnInit {
 			this.booksList = results;
 		});
 	}
+
+	isDisabled(book): boolean {
+		return !book.availability
+	}
 }
