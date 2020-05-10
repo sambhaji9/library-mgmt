@@ -1,6 +1,10 @@
+<div class="form-inline search-div">
+	<input class="form-control mr-sm-2" type="search" placeholder="Search" [(ngModel)]="searchName" aria-label="Search">
+</div>
+
 <div class="list-container">
 	<ul class="list-group">
-		<li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let subjectArea of subjectAreaList" (click)="goToBooksList(subjectArea)">
+		<li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let subjectArea of (subjectAreaList | searchFilter: searchName)" (click)="goToBooksList(subjectArea)">
 			{{subjectArea.name}}
 		</li>
 	</ul>
