@@ -3,6 +3,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { SubjectAreasComponent } from './subject-areas.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
+import { UtilityPipesModule } from 'src/app/utility-pipes/utility-pipes.module';
+import { FormsModule } from '@angular/forms';
 
 describe('SubjectAreasComponent', () => {
   let component: SubjectAreasComponent;
@@ -11,7 +13,7 @@ describe('SubjectAreasComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ SubjectAreasComponent ],
-      imports: [HttpClientModule, RouterTestingModule]
+      imports: [HttpClientModule, RouterTestingModule, UtilityPipesModule, FormsModule]
     })
     .compileComponents();
   }));
