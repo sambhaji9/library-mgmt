@@ -4,9 +4,9 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
+    "build": "./scripts/build.bat",
+    "test": "./scripts/test.bat",
+    "lint": "./scripts/lint.bat",
     "e2e": "ng e2e"
   },
   "private": true,

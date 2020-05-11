@@ -14,21 +14,21 @@ pipeline {
         stage ("DEV build") {
             steps {
                 echo "DEV build"
-                bat "ng build"
+                bat "./frontend/library/scripts/build.bat"
             }
         }
 
         stage ("Lint") {
             steps {
                 echo "Lint"
-                bat "ng lint"
+                bat "./frontend/library/scripts/lint.bat"
             }
         }
 
         stage ("Unit test") {
             steps {
                 echo "Unit test"
-                bat "ng test"
+                bat "./frontend/library/scripts/test.bat"
             }
         }
     }
