@@ -17,6 +17,7 @@ export class BooksListComponent implements OnInit {
 	};
 	booksList: IBook[] = [];
 	databaseName: string;
+	selectedBooksList: IBook[] = [];
 
 	constructor(private booksListService: BooksListService,
 		private activateRoute: ActivatedRoute) { }
@@ -39,5 +40,18 @@ export class BooksListComponent implements OnInit {
 
 	isDisabled(book: IBook): boolean {
 		return !book.availability
+	}
+
+	onChange(book: IBook, isChecked: boolean) {
+		if (!isChecked && this.selectedBooksList.includes(book)) {
+			let indexOfBook = this.selectedBooksList.indexOf(book);
+			this.selectedBooksList.splice(indexOfBook, 1);
+		} else {
+			this.selectedBooksList.push(book);
+		}
+	}
+
+	assignBooksToStudent() {
+		console.log(JSON.stringify(this.selectedBooksList, null, 3));
 	}
 }
