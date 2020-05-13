@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class SubjectAreasComponent implements OnInit {
 
+	/** array for the subject areas available in the library */
 	subjectAreaList: ISubjectArea[] = [];
 
 	constructor(private readonly subjectAreasService: SubjectAreasService,
@@ -21,6 +22,10 @@ export class SubjectAreasComponent implements OnInit {
 		});
 	}
 
+	/**
+	 * Function navigating to the books-list page
+	 * @param subjectArea, selected subject area
+	 */
 	goToBooksList(subjectArea: ISubjectArea) {
 		this.router.navigate(['/subject/', subjectArea]);
 	}
