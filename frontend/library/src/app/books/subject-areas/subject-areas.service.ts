@@ -12,6 +12,10 @@ export class SubjectAreasService {
 
   constructor(private httpClient: HttpClient) { }
 
+  /**
+	 * Function returning the list of the subject areas
+	 * @returns Observable, of ISubjectArea array
+	 */
   getSubjectAreas(): Observable<ISubjectArea[]> {
 		return this.httpClient.get<ISubjectArea[]>(environment.url.concat(environment.subjectAreas));
 	}
