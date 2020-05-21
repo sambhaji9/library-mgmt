@@ -20,4 +20,10 @@ mongoClient.connect(url, function(err, database) {
     //     if (err) throw err;
     //     console.log(results.insertedCount + " documents inserted successfully");
     // });
+
+    dbo.collection("philosphy").insertMany([{"name": "Internet Encyclopedia of Philosophy","language": "English","description": "Philosophy related articles","availability": true,"studentId": ""},{"name": "Marxists Internet Archive","language": "multi-lingual","description": "Topics related to the study of Marxism","availability": true,"studentId": ""},{"name": "RationalWiki","language": "English","description": "Skeptical movement|Skeptical","availability": true,"studentId": ""},{"name": "Routledge Encyclopedia of Philosophy","language": "English","description": "Philosophy articles","availability": true,"studentId": ""},{"name": "Stanford Encyclopedia of Philosophy","language": "English","description": "Philosophy subjects","availability": true,"studentId": ""}], function (err, results) {
+        if (err) throw err;
+
+        console.log(results.insertedCount + " documents inserted successfully");
+    });
 });
