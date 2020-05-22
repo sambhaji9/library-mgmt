@@ -1,7 +1,7 @@
 .books-table {
-    margin: 20px;
-    width: auto;
-    font-size: 14px;
+	margin: 20px;
+	width: auto;
+	font-size: 14px;
 }
 
 .subject-header {
@@ -9,12 +9,12 @@
 }
 
 .header-section {
-    display: inline-flex;
+	display: inline-flex;
 }
 
 .assign-btn {
-    height: fit-content;
-    width: 100px;
-    margin-top: 13px;
-    margin-left: 40px;
+	height: fit-content;
+	width: 100px;
+	margin-top: 13px;
+	margin-left: 40px;
 }
