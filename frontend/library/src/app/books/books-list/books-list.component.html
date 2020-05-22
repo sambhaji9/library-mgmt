@@ -11,15 +11,15 @@
 	<tr>
 		<th></th>
 		<th>Name</th>
-		<th>Language</th>
 		<th>Description</th>
+		<th>Language</th>
 		<th>Availability</th>
 	</tr>
 	<tr *ngFor="let book of (booksList | searchFilter: searchName)">
-		<td><input type="checkbox" [disabled]="isDisabled(book)" (change)="onChange(book, $event.target.checked)"/></td>
+		<td style="text-align: center;"><input type="checkbox" [disabled]="isDisabled(book)" (change)="onChange(book, $event.target.checked)"/></td>
 		<td>{{book.name}}</td>
-		<td>{{book.language}}</td>
-		<td>{{book.description}}</td>
+		<td style="width: 40%">{{book.description}}</td>
+		<td [innerHTML]=book.language></td>
 		<td>{{book.availability ? "Available": "Unavailable"}}</td>
 	</tr>
 </table>
