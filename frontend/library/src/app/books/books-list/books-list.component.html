@@ -5,9 +5,13 @@
 		<input class="form-control mr-sm-2" type="search" placeholder="Search" [(ngModel)]="searchName"
 			aria-label="Search">
 	</div>
-	<button class="btn btn-secondary assign-btn" [disabled]="selectedBooksList.length === 0"
+	<button class="btn btn-secondary btn-sm assign-btn" [disabled]="selectedBooksList.length === 0"
 		(click)="assignBooksToStudent()">Assign <span
-			*ngIf="selectedBooksList.length > 0">({{selectedBooksList.length}})</span></button>
+			*ngIf="selectedBooksList.length > 0">({{selectedBooksList.length}})</span>
+	</button>
+	<button class="btn btn-secondary btn-sm assign-btn">
+		<a href="/new-book">New Book</a>
+	</button>
 </div>
 
 <table class="table table-bordered table-hover books-table">

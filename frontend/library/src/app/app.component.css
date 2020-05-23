@@ -19,3 +19,7 @@ img {
 .menu-items {
     display: flex;
 }
+
+a {
+    margin-left: 20px;
+}
