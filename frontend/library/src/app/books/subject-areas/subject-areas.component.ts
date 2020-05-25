@@ -12,6 +12,7 @@ export class SubjectAreasComponent implements OnInit {
 
 	/** array for the subject areas available in the library */
 	subjectAreaList: ISubjectArea[] = [];
+	newSubjectArea: string = 'subject-area';
 
 	constructor(private readonly subjectAreasService: SubjectAreasService,
 		private readonly router: Router) { }
@@ -28,6 +29,10 @@ export class SubjectAreasComponent implements OnInit {
 	 */
 	goToBooksList(subjectArea: ISubjectArea) {
 		this.router.navigate(['/subject/', subjectArea]);
+	}
+
+	navigateToNewSubjectAreaForm() {
+		this.router.navigate(['/new-book/', this.newSubjectArea]);
 	}
 
 }

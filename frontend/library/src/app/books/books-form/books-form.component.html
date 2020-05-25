@@ -1,3 +1,8 @@
-<p>
-  books-form works!
-</p>
+<form class="col-lg-4 col-md-4 col-sm-4 mt-3">
+	<div class="form-group">
+		<label for="subjectAreaName">New Subject Area</label>
+		<input type="text" [formControl]="subjectAreaName" class="form-control mt-3" id="subjectAreaName"
+			placeholder="Enter subject area">
+		<button class="btn btn-primary btn-sm mt-3" (click)="saveSubjectAreaName()">Submit</button>
+	</div>
+</form>
