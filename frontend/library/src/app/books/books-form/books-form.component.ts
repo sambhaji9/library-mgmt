@@ -18,7 +18,9 @@ export class BooksFormComponent implements OnInit {
 	}
 
 	saveSubjectAreaName() {
-		console.log(this.subjectAreaName.value);
+		if (this.subjectAreaName.value !== "") {
+			console.log(this.subjectAreaName.value);
+		}
 	}
 
 }

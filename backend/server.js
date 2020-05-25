@@ -48,6 +48,11 @@ app.get('/subject', function (request, response) {
 	}
 });
 
+app.put('/new-subject-area', function(request, response) {
+	var subjectAreaName = request.query.subjectAreaName;
+	console.log(subjectAreaName);
+});
+
 app.listen(3000, function () {
 	console.log("Server stated successfully");
 });
