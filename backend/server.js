@@ -52,7 +52,6 @@ app.get('/subject', function (request, response) {
 				response.end();
 			});
 		});
-		database.close();
 	}
 });
 
