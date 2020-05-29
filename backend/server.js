@@ -15,7 +15,7 @@ app.use(function (request, response, next) {
 	response.header("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
 	next();
 });
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.get("/", function (request, response) {
@@ -58,16 +58,40 @@ app.get('/subject', function (request, response) {
 app.post('/newSubjectArea', function (request, response) {
 	var newSubjectArea = request.body.params.updates[0].value;
 
-	mongoClient.connect(url, function(err, database) {
+	mongoClient.connect(url, function (err, database) {
 		if (err) throw err;
 
 		var dbo = database.db(databaseName);
-		dbo.collection("subjectAreas").insertOne({name: newSubjectArea, databaseName: newSubjectArea.toLowerCase()}, function(err, results) {
+		dbo.collection("subjectAreas").insertOne({ name: newSubjectArea, databaseName: newSubjectArea.toLowerCase() }, function (err, results) {
 			if (err) throw err;
-			
-			response.status(200).json({message: results.insertedCount + ' documents inserted successfully', code: 'R00'});
+
+			response.status(200).json({ message: results.insertedCount + ' documents inserted successfully', code: 'R00' });
 			response.end();
 		});
+	});
+});
+
+app.post('/newBook', function (request, response) {
+	var newBook = JSON.parse(request.body.params.updates[0].value);
+
+	mongoClient.connect(url, function (err, database) {
+		if (err) throw err;
+
+		var dbo = database.db(databaseName);
+		dbo.collection(newBook.databaseName).insertOne(
+			{
+				name: newBook.name,
+				language: newBook.language,
+				description: newBook.description,
+				availability: newBook.availability,
+				studentId: newBook.studentId
+			},
+			function (err, results) {
+				if (err) throw err;
+
+				response.status(200).json({ message: results.insertedCount + ' documents inserted successfully', code: 'R00' });
+				response.end();
+			});
 	});
 });
 
