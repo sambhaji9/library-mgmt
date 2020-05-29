@@ -32,7 +32,7 @@ export class SubjectAreasComponent implements OnInit {
 	}
 
 	navigateToNewSubjectAreaForm() {
-		this.router.navigate(['/new-book/', this.newSubjectArea]);
+		this.router.navigate(['/new/', {id: this.newSubjectArea}]);
 	}
 
 }

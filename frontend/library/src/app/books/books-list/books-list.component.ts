@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BooksListService } from './books-list.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ISubject, IBook } from './books-list.model';
 
 @Component({
@@ -24,7 +24,7 @@ export class BooksListComponent implements OnInit {
 	selectedBooksList: IBook[] = [];
 
 	constructor(private booksListService: BooksListService,
-		private activateRoute: ActivatedRoute) { }
+		private activateRoute: ActivatedRoute, private router: Router) { }
 
 	ngOnInit() {
 		// get the routes parameters on navigating to books-list page
@@ -74,5 +74,12 @@ export class BooksListComponent implements OnInit {
 	 */
 	assignBooksToStudent() {
 		console.log(JSON.stringify(this.selectedBooksList, null, 3));
+	}
+
+	/**
+	 * Function navigating to the new books
+	 */
+	navigateToBooksForm() {
+		this.router.navigate(['/new/', this.subject]);
 	}
 }

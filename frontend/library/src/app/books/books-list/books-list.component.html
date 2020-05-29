@@ -9,8 +9,8 @@
 		(click)="assignBooksToStudent()">Assign <span
 			*ngIf="selectedBooksList.length > 0">({{selectedBooksList.length}})</span>
 	</button>
-	<button class="btn btn-secondary btn-sm assign-btn">
-		<a href="/new-book">New Book</a>
+	<button class="btn btn-secondary btn-sm assign-btn" (click)="navigateToBooksForm(selectedBooksList)">
+		New Book
 	</button>
 </div>
 

@@ -24,7 +24,7 @@ const routes: Routes = [
 		component: StudentFormComponent
 	},
 	{
-		path: 'new-book/:id',
+		path: 'new',
 		component: BooksFormComponent
 	}
 ];

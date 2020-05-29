@@ -11,4 +11,5 @@ export interface IBook {
 	description: string;
 	availability: boolean;
 	studentId: string;
+	databaseName?: string;
 }
