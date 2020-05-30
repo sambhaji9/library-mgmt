@@ -1,3 +1,20 @@
-<button class="btn btn-secondary btn-sm btn-new" (click)="navigateToStudentForm()">
+<button class="btn btn-primary btn-sm btn-new" (click)="navigateToStudentForm()">
 	New Student
 </button>
+
+<div class="mt-3 ml-3 mr-3">
+	<table class="table table-hover table-bordered">
+		<tr class="text-center">
+			<th>#</th>
+			<th>Name</th>
+			<th>Roll Number</th>
+			<th>Class</th>
+		</tr>
+		<tr *ngFor="let student of studentList; index as i">
+			<td class="text-center">{{i + 1}}</td>
+			<td>{{student.name}}</td>
+			<td class="text-center">{{student.rollNo}}</td>
+			<td class="text-center">{{student.class}}</td>
+		</tr>
+	</table>
+</div>

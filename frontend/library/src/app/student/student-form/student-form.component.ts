@@ -14,6 +14,7 @@ export class StudentFormComponent implements OnInit {
 		studentRollNo: new FormControl(''),
 		studentClass: new FormControl('')
 	});
+	saveMessage: string = "";
 
 	classArray: string[] = ["MCA-I","MCA-II","MCA-III","BCA-I","BCA-II","BCA-III", "B.Sc-I", "B.Sc-II", "B.Sc-III","BA-I", "BA-II", "BA-III"]
 
@@ -24,7 +25,7 @@ export class StudentFormComponent implements OnInit {
 
 	saveStudentDetails() {
 		this.studentFormService.saveStudentDetails(this.studentForm.value).subscribe(response => {
-			console.log(response);
+			this.saveMessage = response.message;
 		});
 	}
 
