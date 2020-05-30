@@ -11,7 +11,8 @@ export const environment = {
 	subject: 'subject',
 	newSubjectArea: 'newSubjectArea',
 	newBook: 'newBook',
-	newStudent: 'newStudent'
+	newStudent: 'newStudent',
+	student: 'student-list'
 };
 
 /*
