@@ -1,3 +1,21 @@
-<p>
-  student-form works!
-</p>
+<form class="col-lg-6 col-md-6 col-sm-6 mt-3" [formGroup]="studentForm">
+
+	<div class="form-group">
+		<label>Name</label>
+		<input type="text" class="form-control" formControlName="studentName" required />
+	</div>
+
+	<div class="form-group">
+		<label>Roll Number</label>
+		<input type="text" class="form-control" formControlName="studentRollNo" required />
+	</div>
+
+	<div class="form-group">
+		<label>Class</label>
+		<select type="text" class="form-control" formControlName="studentClass" required>
+			<option *ngFor="let class of classArray">{{class}}</option>
+		</select>
+	</div>
+
+	<button class="btn btn-primary btn-sm" [disabled]="!studentForm.valid" (click)="saveStudentDetails()">Save</button>
+</form>

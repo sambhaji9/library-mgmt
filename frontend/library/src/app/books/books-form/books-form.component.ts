@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormsModule, Validators } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BooksFormService } from './books-form.service';
 import { ISubject } from '../books-list/books-list.model';

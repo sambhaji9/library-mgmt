@@ -95,6 +95,22 @@ app.post('/newBook', function (request, response) {
 	});
 });
 
+app.post("/newStudent", function(request, response) {
+	var studentDetails = JSON.parse(request.body.params.updates[0].value);
+
+	mongoClient.connect(url, function(err, database) {
+		if (err) throw err;
+
+		var dbo = database.db(databaseName);
+		dbo.collection("student").insertOne({name: studentDetails.studentName, rollNo: studentDetails.studentRollNo, class: studentDetails.studentClass}, function(err, results) {
+			if (err) throw err;
+
+			response.status(200).json({message: results.insertedCount + " document inserted successfully", code: "R00"});
+			response.end();
+		});
+	});
+});
+
 app.listen(3000, function () {
 	console.log("Server stated successfully");
 });
