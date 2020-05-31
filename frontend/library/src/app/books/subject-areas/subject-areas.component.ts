@@ -31,6 +31,9 @@ export class SubjectAreasComponent implements OnInit {
 		this.router.navigate(['/subject/', subjectArea]);
 	}
 
+	/**
+	 * Function navigating to the new subjectArea form or new books form
+	 */
 	navigateToNewSubjectAreaForm() {
 		this.router.navigate(['/new/', {id: this.newSubjectArea}]);
 	}

@@ -11,6 +11,9 @@ export class StudentListService {
 
 	constructor(private httpClient: HttpClient) { }
 
+	/**
+	 * Function returning the list of students
+	 */
 	getStudentList(): Observable<IStudentForm[]> {
 		return this.httpClient.get<IStudentForm[]>(environment.url.concat(environment.student));
 	}

@@ -12,19 +12,24 @@ import { ISubject } from '../books-list/books-list.model';
 export class BooksFormComponent implements OnInit {
 
 	displaySubjectAreaForm = true;
+
+	// Initializing the new subjectArea form
 	subjectAreaName = new FormControl('');
 
+	// Initializing the new books form
 	booksForm = new FormGroup({
 		name: new FormControl(''),
 		language: new FormControl(''),
 		description: new FormControl('')
 	});
 
+	// Initializing the subjectArea object
 	subjectArea: ISubject = {
 		_id: "",
 		name: "",
 		databaseName: ""
 	};
+
 	params: any;
 	responseMessage: string;
 
@@ -40,6 +45,10 @@ export class BooksFormComponent implements OnInit {
 
 	}
 
+	/**
+	 * function saving the new subject area in subjectArea collection
+	 * After successful saving navigating back to subject-areas page
+	 */
 	saveSubjectAreaName() {
 		if (this.subjectAreaName.value !== "") {
 			this.booksFormService.saveNewSubjectArea(this.subjectAreaName.value).subscribe(message => {
@@ -50,6 +59,10 @@ export class BooksFormComponent implements OnInit {
 		}
 	}
 
+	/**
+	 * function saving the new book details in the respective books collection
+	 * After successful saving displaying the result message
+	 */
 	saveNewBookDetails() {
 		this.booksFormService.saveNewBook({
 			_id: "",
