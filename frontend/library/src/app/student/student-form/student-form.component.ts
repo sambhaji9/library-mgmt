@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { StudentFormService } from './student-form.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { THROW_IF_NOT_FOUND } from '@angular/core/src/di/injector';
 
 @Component({
 	selector: 'app-student-form',
@@ -15,12 +17,22 @@ export class StudentFormComponent implements OnInit {
 		studentClass: new FormControl('')
 	});
 	saveMessage: string = "";
+	showSaveButton: boolean = true;
 
-	classArray: string[] = ["MCA-I","MCA-II","MCA-III","BCA-I","BCA-II","BCA-III", "B.Sc-I", "B.Sc-II", "B.Sc-III","BA-I", "BA-II", "BA-III"]
+	classArray: string[] = ["MCA-I", "MCA-II", "MCA-III", "BCA-I", "BCA-II", "BCA-III", "B.Sc-I", "B.Sc-II", "B.Sc-III", "BA-I", "BA-II", "BA-III"]
 
-	constructor(private studentFormService: StudentFormService) { }
+	constructor(private studentFormService: StudentFormService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
 	ngOnInit() {
+		let params = this.activatedRoute.snapshot.params;
+		if (params.hasOwnProperty('name')) {
+			this.studentForm.setValue({
+				studentName: this.activatedRoute.snapshot.params.name,
+				studentRollNo: this.activatedRoute.snapshot.params.rollNo,
+				studentClass: this.activatedRoute.snapshot.params.class
+			});
+			this.showSaveButton = false;
+		}
 	}
 
 	/**
@@ -33,4 +45,16 @@ export class StudentFormComponent implements OnInit {
 		});
 	}
 
+	updateStudentDetails() {
+		this.studentFormService.updateStudentDetails({
+			name: this.studentForm.value.studentName,
+			rollNo: this.studentForm.value.studentRollNo,
+			class: this.studentForm.value.studentClass,
+			_id: this.activatedRoute.snapshot.params._id
+		}).subscribe(response => {
+			if (response.code === 'R00') {
+				this.router.navigate(['/student-list/']);
+			}
+		});
+	}
 }

@@ -5,4 +5,5 @@ export interface IStudentForm {
     name: string;
     rollNo: number;
     class: string;
+    _id?: string;
 }

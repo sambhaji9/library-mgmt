@@ -21,7 +21,7 @@ export class StudentListComponent implements OnInit {
 	/**
 	 * Function navigating to the student form
 	 */
-	navigateToStudentForm() {
+	navigateToStudentForm(student: IStudentForm) {
 		this.router.navigate(['/student-form/']);
 	}
 
@@ -32,6 +32,10 @@ export class StudentListComponent implements OnInit {
 		this.studentListService.getStudentList().subscribe(response => {
 			this.studentList = response;
 		});
+	}
+
+	editStudentDetails(student: IStudentForm) {
+		this.router.navigate(['/student-form/', student]);
 	}
 
 }

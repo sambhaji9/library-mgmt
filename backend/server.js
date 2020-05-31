@@ -1,7 +1,7 @@
 var express = require("express");
 var app = express();
 var bodyParser = require("body-parser");
-const { MongoClient } = require("mongodb");
+const { MongoClient, ObjectID } = require("mongodb");
 
 var mongoClient = require('mongodb').MongoClient;
 var url = 'mongodb://localhost:27017/';
@@ -95,33 +95,58 @@ app.post('/newBook', function (request, response) {
 	});
 });
 
-app.post("/newStudent", function(request, response) {
+app.post("/newStudent", function (request, response) {
 	var studentDetails = JSON.parse(request.body.params.updates[0].value);
 
-	mongoClient.connect(url, function(err, database) {
+	mongoClient.connect(url, function (err, database) {
 		if (err) throw err;
 
 		var dbo = database.db(databaseName);
-		dbo.collection("student").insertOne({name: studentDetails.studentName, rollNo: studentDetails.studentRollNo, class: studentDetails.studentClass}, function(err, results) {
+		dbo.collection("student").insertOne({ name: studentDetails.studentName, rollNo: studentDetails.studentRollNo, class: studentDetails.studentClass }, function (err, results) {
 			if (err) throw err;
 
-			response.status(200).json({message: results.insertedCount + " document inserted successfully", code: "R00"});
+			response.status(200).json({ message: results.insertedCount + " document inserted successfully", code: "R00" });
 			response.end();
 		});
 	});
 });
 
-app.get("/student-list", function(request, response) {
-	mongoClient.connect(url, function(err, database) {
+app.get("/student-list", function (request, response) {
+	mongoClient.connect(url, function (err, database) {
 		if (err) throw err;
 
 		var dbo = database.db(databaseName);
-		dbo.collection('student').find({}).toArray(function(err, results) {
+		dbo.collection('student').find({}).toArray(function (err, results) {
 			if (err) throw err;
 
 			response.status(200).json(results);
 			response.end();
 		});
+	});
+});
+
+app.post('/updateStudent', function (request, response) {
+	var studentDetails = JSON.parse(request.body.params.updates[0].value);
+	mongoClient.connect(url, function (err, database) {
+		if (err) throw err;
+
+		var dbo = database.db(databaseName);
+		dbo.collection('student').updateOne(
+			{ "_id": ObjectID(studentDetails._id) },
+			{
+				$set: {
+					name: studentDetails.name,
+					rollNo: studentDetails.rollNo,
+					class: studentDetails.class
+				}
+			}, function (err, results) {
+				if (err) throw err;
+
+				response.status(200).json({
+					message: results.upsertedCount + " document updated successfully",
+					code: "R00"
+				});
+			});
 	});
 });
 

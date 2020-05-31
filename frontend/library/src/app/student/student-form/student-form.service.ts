@@ -16,6 +16,13 @@ export class StudentFormService {
 		let params = new HttpParams();
 		params = params.append('studentDetails', JSON.stringify(studentDetails));
 
-		return this.httpClient.post<IResponse>(environment.url.concat(environment.newStudent), {params: params});
+		return this.httpClient.post<IResponse>(environment.url.concat(environment.newStudent), { params: params });
+	}
+
+	updateStudentDetails(studentDetails: IStudentForm): Observable<IResponse> {
+		let params = new HttpParams();
+		params = params.append('studentDetails', JSON.stringify(studentDetails));
+
+		return this.httpClient.post<IResponse>(environment.url.concat(environment.updateStudent), { params: params });
 	}
 }
