@@ -15,14 +15,20 @@ export class StudentListComponent implements OnInit {
 	studentList: IStudentForm[];
 
 	ngOnInit() {
-		this.getBooksList();
+		this.getStudentsList();
 	}
 
+	/**
+	 * Function navigating to the student form
+	 */
 	navigateToStudentForm() {
 		this.router.navigate(['/student-form/']);
 	}
 
-	getBooksList() {
+	/**
+	 * Function returning the list of students
+	 */
+	getStudentsList() {
 		this.studentListService.getStudentList().subscribe(response => {
 			this.studentList = response;
 		});

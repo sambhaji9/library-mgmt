@@ -13,6 +13,11 @@ export class BooksFormService {
 
 	constructor(private http: HttpClient) { }
 
+	/**
+	 * function saving the new subject area in subjectArea collection
+	 * After successful saving returning the Observable
+	 * @param newSubjectArea
+	 */
 	saveNewSubjectArea(newSubjectArea: string): Observable<IResponse> {
 		let params = new HttpParams();
 		params = params.append('newSubjectArea', newSubjectArea)
@@ -20,6 +25,11 @@ export class BooksFormService {
 		return this.http.post<IResponse>(environment.url.concat(environment.newSubjectArea), { params: params });
 	}
 
+	/**
+	 * function saving the new book in the respective books collection
+	 * After successful saving returning the Observable
+	 * @param newSubjectArea
+	 */
 	saveNewBook(subjectDetails: IBook) {
 		let params = new HttpParams();
 		params = params.append('newBook', JSON.stringify(subjectDetails));

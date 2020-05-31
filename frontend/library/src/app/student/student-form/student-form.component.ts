@@ -23,6 +23,10 @@ export class StudentFormComponent implements OnInit {
 	ngOnInit() {
 	}
 
+	/**
+	 * Function saving the student details in the students collection and
+	 * showing the message returned from the server
+	 */
 	saveStudentDetails() {
 		this.studentFormService.saveStudentDetails(this.studentForm.value).subscribe(response => {
 			this.saveMessage = response.message;

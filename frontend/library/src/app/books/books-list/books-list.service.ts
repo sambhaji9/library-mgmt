@@ -17,7 +17,6 @@ export class BooksListService {
 	 * @returns Observable, of IBook array
 	 */
 	getBooksList(databaseName: string): Observable<IBook[]> {
-
 		let params = new HttpParams();
 		params = params.append('name', databaseName);
 
