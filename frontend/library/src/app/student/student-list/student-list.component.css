@@ -6,3 +6,11 @@
 a {
     color: #ffffff;
 }
+
+td:first-child {
+    cursor: pointer;
+}
+
+td:first-child:hover {
+    text-decoration: underline;
+}
