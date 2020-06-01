@@ -5,6 +5,7 @@ import { BooksListComponent } from './books/books-list/books-list.component';
 import { StudentListComponent } from './student/student-list/student-list.component';
 import { StudentFormComponent } from './student/student-form/student-form.component';
 import { BooksFormComponent } from './books/books-form/books-form.component';
+import { StudentDetailsComponent } from './student/student-details/student-details.component';
 
 const routes: Routes = [
 	{
@@ -26,6 +27,10 @@ const routes: Routes = [
 	{
 		path: 'new',
 		component: BooksFormComponent
+	},
+	{
+		path: 'student-details',
+		component: StudentDetailsComponent
 	}
 ];
 

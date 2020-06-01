@@ -15,13 +15,13 @@ export class BooksListComponent implements OnInit {
 		name: '',
 		databaseName: ''
 	};
-	
+
 	/** books list array returned from the BooksListService */
 	booksList: IBook[] = [];
 	/** name of the collection */
 	databaseName: string;
 	/** selected books array */
-	selectedBooksList: IBook[] = [];
+	selectedBooksList = [];
 
 	constructor(private booksListService: BooksListService,
 		private activateRoute: ActivatedRoute, private router: Router) { }
@@ -60,12 +60,12 @@ export class BooksListComponent implements OnInit {
 	 * @param book, book object 
 	 * @param isChecked, boolean
 	 */
-	onChange(book: IBook, isChecked: boolean) {
+	onChange(book, isChecked: boolean) {
 		if (!isChecked && this.selectedBooksList.includes(book)) {
 			let indexOfBook = this.selectedBooksList.indexOf(book);
 			this.selectedBooksList.splice(indexOfBook, 1);
 		} else {
-			this.selectedBooksList.push(book);
+			this.selectedBooksList.push(JSON.stringify(book));
 		}
 	}
 
@@ -73,7 +73,7 @@ export class BooksListComponent implements OnInit {
 	 * Function updating the book in the collection, when book is assigned to a student
 	 */
 	assignBooksToStudent() {
-		console.log(JSON.stringify(this.selectedBooksList, null, 3));
+		this.router.navigate(['/student-details/', this.selectedBooksList]);
 	}
 
 	/**
