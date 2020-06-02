@@ -14,9 +14,14 @@ export class StudentDetailsComponent implements OnInit {
 
 	ngOnInit() {
 		let paramKeys = Object.keys(this.activatedRoute.snapshot.params);
-		paramKeys.forEach(element => {
-			this.books.push(JSON.parse(this.activatedRoute.snapshot.params[element]));
-		});
+		if (paramKeys.indexOf('url') === -1) {
+			paramKeys.forEach(element => {
+				this.books.push(JSON.parse(this.activatedRoute.snapshot.params[element]));
+			});
+			console.log(this.books);
+		} else {
+			console.log(JSON.parse(this.activatedRoute.snapshot.params['studentDetails']));
+		}
 	}
 
 }

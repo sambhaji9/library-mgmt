@@ -50,4 +50,8 @@ export class StudentListComponent implements OnInit {
 		console.log(student);
 	}
 
+	navigateToStudentDetails(student: IStudentForm) {
+		this.router.navigate(['/student-details/', {url: 'student-list', 'studentDetails': JSON.stringify(student)}]);
+	}
+
 }

@@ -18,7 +18,8 @@
 				<td class="text-center">{{student.rollNo}}</td>
 				<td class="text-center">{{student.class}}</td>
 				<td class="text-center">
-					<img class="mr-3" src="../../../assets/edit-24px.svg" alt="Edit" (click)="editStudentDetails(student)"/>
+					<img class="mr-3" src="../../../assets/book-24px.svg" alt="Edit" (click)="navigateToStudentDetails(student)"/>
+					<img class="ml-3 mr-3" src="../../../assets/edit-24px.svg" alt="Edit" (click)="editStudentDetails(student)"/>
 					<img class="ml-3" src="../../../assets/delete-24px.svg" alt="Delete" (click)="deleteStudentDetails(student)"/>
 				</td>
 			</tr>
