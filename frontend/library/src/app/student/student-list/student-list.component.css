@@ -7,10 +7,6 @@ a {
     color: #ffffff;
 }
 
-td:first-child {
+img {
     cursor: pointer;
-}
-
-td:first-child:hover {
-    text-decoration: underline;
 }

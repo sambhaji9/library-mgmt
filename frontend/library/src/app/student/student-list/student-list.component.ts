@@ -34,8 +34,20 @@ export class StudentListComponent implements OnInit {
 		});
 	}
 
+	/**
+	 * Function allowing the editing of the studentDetails
+	 * @param student
+	 */
 	editStudentDetails(student: IStudentForm) {
 		this.router.navigate(['/student-form/', student]);
+	}
+
+	/**
+	 * Function allowing the deleting of the studentDetails
+	 * @param student
+	 */
+	deleteStudentDetails(student: IStudentForm) {
+		console.log(student);
 	}
 
 }
