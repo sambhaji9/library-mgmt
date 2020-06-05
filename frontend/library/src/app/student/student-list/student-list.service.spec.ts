@@ -3,12 +3,12 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { StudentListService } from './student-list.service';
 
 describe('StudentListService', () => {
-  beforeEach(() => TestBed.configureTestingModule({
-    declarations: [HttpClientTestingModule]
-  }));
+	beforeEach(() => TestBed.configureTestingModule({
+		imports: [HttpClientTestingModule]
+	}));
 
-  it('should be created', () => {
-    const service: StudentListService = TestBed.get(StudentListService);
-    expect(service).toBeTruthy();
-  });
+	it('should be created', () => {
+		const service: StudentListService = TestBed.get(StudentListService);
+		expect(service).toBeTruthy();
+	});
 });

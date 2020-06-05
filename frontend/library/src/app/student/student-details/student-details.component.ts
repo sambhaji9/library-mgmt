@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { element } from '@angular/core/src/render3';
 import { IBook } from 'src/app/books/books-list/books-list.model';
 
 @Component({
