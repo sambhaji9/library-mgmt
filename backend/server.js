@@ -125,6 +125,22 @@ app.get("/student-list", function (request, response) {
 	});
 });
 
+app.delete('/deleteStudent', function(request, response) {
+	var studentId = request.query.id;
+	
+	mongoClient.connect(url, function(err, database) {
+		if (err) throw err;
+
+		var dbo = database.db(databaseName);
+		dbo.collection("student").deleteOne({_id: ObjectID(studentId)}, function(err, results) {
+			if (err) throw err;
+
+			response.status(200).json({message: results.deletedCount + " document deleted successfully", code: "R00"});
+			response.end();
+		});
+	});
+});
+
 app.post('/updateStudent', function (request, response) {
 	var studentDetails = JSON.parse(request.body.params.updates[0].value);
 	mongoClient.connect(url, function (err, database) {

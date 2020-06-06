@@ -13,7 +13,8 @@ export const environment = {
 	newBook: 'newBook',
 	newStudent: 'newStudent',
 	student: 'student-list',
-	updateStudent: 'updateStudent'
+	updateStudent: 'updateStudent',
+	deleteStudent: 'deleteStudent'
 };
 
 /*
