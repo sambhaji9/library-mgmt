@@ -3,7 +3,7 @@
  */
 export interface IStudentForm {
     name: string;
-    rollNo: number;
+    rollNo: string;
     class: string;
     _id?: string;
 }
