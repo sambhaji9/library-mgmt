@@ -1,3 +1,40 @@
-<p>
-  student-details works!
-</p>
+<div class="student-details-div">
+   <table class="table">
+      <tr>
+         <td>Name</td>
+         <td>
+            <span class="text-label">{{studentDetails.name}}</span>
+            <select class="form-control" *ngIf="showStudentListSelect" [(ngModel)]="student"
+               (change)="selectedStudentChange()">
+               <option *ngFor="let student of studentList" [ngValue]="student">{{student.name}}</option>
+            </select>
+         </td>
+      </tr>
+      <tr>
+         <td>Roll Number</td>
+         <td class="text-label">{{studentDetails.rollNo}}</td>
+      </tr>
+      <tr>
+         <td>Class</td>
+         <td class="text-label">{{studentDetails.class}}</td>
+      </tr>
+   </table>
+</div>
+
+<div>
+   <button class="btn btn-primary btn-sm ml-3" *ngIf="showStudentListSelect" (click)="assignBooks()">
+      Assign Books
+   </button>
+   <div style="margin: 10px;">
+      <table class="table table-bordered books-table">
+         <tr>
+            <th class="text-center">#</th>
+            <th>Name</th>
+         </tr>
+         <tr *ngFor="let book of books; index as i">
+            <td class="text-center">{{i + 1}}</td>
+            <td>{{book.name}}</td>
+         </tr>
+      </table>
+   </div>
+</div>

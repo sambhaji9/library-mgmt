@@ -65,6 +65,7 @@ export class BooksListComponent implements OnInit {
 			let indexOfBook = this.selectedBooksList.indexOf(book);
 			this.selectedBooksList.splice(indexOfBook, 1);
 		} else {
+			book.databaseName = this.subject.databaseName;
 			this.selectedBooksList.push(JSON.stringify(book));
 		}
 	}

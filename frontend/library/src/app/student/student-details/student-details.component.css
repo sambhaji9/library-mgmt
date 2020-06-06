@@ -1,0 +1,23 @@
+.text-label {
+    color: #495057;
+}
+
+td {
+    border: none;
+}
+
+tr:last-child {
+    border-bottom: 1px solid #d0d0d0;
+}
+
+.books-table {
+    font-size: 13px;
+    color: #495057;
+    width: 60%;
+}
+
+.student-details-div {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 60%;
+}
