@@ -22,6 +22,6 @@ export class StudentDetailsComponent implements OnInit {
 		} else {
 			console.log(JSON.parse(this.activatedRoute.snapshot.params['studentDetails']));
 		}
-	}
-
+   }
+   
 }
