@@ -13,6 +13,8 @@ export class StudentListComponent implements OnInit {
 	constructor(private router: Router, private studentListService: StudentListService) { }
 
 	studentList: IStudentForm[];
+	message: string = 'This is a alert message';
+	showAlertMessage = false;
 
 	ngOnInit() {
 		this.getStudentsList();
@@ -47,11 +49,23 @@ export class StudentListComponent implements OnInit {
 	 * @param student
 	 */
 	deleteStudentDetails(student: IStudentForm) {
-		console.log(student);
+		this.studentListService.deleteStudentDetails(student).subscribe(response => {
+			if (response.code === 'R00') {
+				this.showAlertMessage = true;
+				this.message = response.message;
+
+				// reload the student-list
+				this.getStudentsList();
+			}
+		});
 	}
 
+	/**
+	 * Function navigating to studentDetails form
+	 * @param student, studentDetails
+	 */
 	navigateToStudentDetails(student: IStudentForm) {
-		this.router.navigate(['/student-details/', {url: 'student-list', 'studentDetails': JSON.stringify(student)}]);
+		this.router.navigate(['/student-details/', { url: 'student-list', 'studentDetails': JSON.stringify(student) }]);
 	}
 
 }

@@ -1,16 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { StudentFormComponent } from './student-form.component';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { Routes } from '@angular/router';
 
 describe('StudentFormComponent', () => {
   let component: StudentFormComponent;
   let fixture: ComponentFixture<StudentFormComponent>;
 
   beforeEach(async(() => {
+    const routes: Routes = [];
     TestBed.configureTestingModule({
       declarations: [ StudentFormComponent ],
-      imports: [FormControl, ReactiveFormsModule]
+      imports: [ReactiveFormsModule, HttpClientTestingModule, RouterTestingModule.withRoutes(routes)]
     }).compileComponents();
   }));
 
