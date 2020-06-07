@@ -47,9 +47,9 @@
          <th>Date</th>
       </tr>
       <tr *ngFor="let book of studentBooks; index as i">
-         <td>{{i + 1}}</td>
+         <td class="text-center">{{i + 1}}</td>
          <td>{{book.bookName}}</td>
-         <td>{{book.bookIssueDate}}</td>
+         <td class="text-center">{{book.bookIssueDate}}</td>
       </tr>
    </table>
 </div>
