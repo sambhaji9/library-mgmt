@@ -14,7 +14,9 @@ export const environment = {
 	newStudent: 'newStudent',
 	student: 'student-list',
 	updateStudent: 'updateStudent',
-	deleteStudent: 'deleteStudent'
+	deleteStudent: 'deleteStudent',
+	assignBooks: 'assignBooks',
+	booksList: 'booksList'
 };
 
 /*

@@ -66,6 +66,7 @@ export class BooksListComponent implements OnInit {
 			this.selectedBooksList.splice(indexOfBook, 1);
 		} else {
 			book.databaseName = this.subject.databaseName;
+			book.date = new Date().toLocaleDateString();
 			this.selectedBooksList.push(JSON.stringify(book));
 		}
 	}

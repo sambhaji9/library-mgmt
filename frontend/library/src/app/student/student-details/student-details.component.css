@@ -14,6 +14,11 @@ tr:last-child {
     font-size: 13px;
     color: #495057;
     width: 60%;
+    border: 1px solid #f0f0f0;
+}
+
+.books-table td, th {
+    border: 1px solid #f0f0f0;
 }
 
 .student-details-div {
