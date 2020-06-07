@@ -172,12 +172,14 @@ app.post('/assignBooks', function (request, response) {
    var books = query.books;
    var studentBooks = [];
 
+   var updatedCollection = books[0].databaseName;
+
    mongoClient.connect(url, function (err, database) {
       if (err) throw err;
 
       var dbo = database.db(databaseName);
       dbo.collection("student").findOne({ "_id": ObjectID(studentId) }, function (err, results) {
-         if (results.books.length > 0) {
+         if (results.books && results.books.length > 0) {
             studentBooks = results.books;
          } else {
             studentBooks = [];
@@ -190,6 +192,15 @@ app.post('/assignBooks', function (request, response) {
                bookDatabaseName: books[i].databaseName,
                bookIssueDate: books[i].date
             });
+
+            dbo.collection(updatedCollection).updateOne(
+               {"_id": ObjectID(books[i]._id)},
+               {
+                  $set: {
+                     studentId: studentId,
+                     availability: false
+                  }
+               });
          }
 
          dbo.collection("student").updateOne(

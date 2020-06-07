@@ -44,6 +44,7 @@ export class StudentDetailsComponent implements OnInit {
       } else {
          this.studentDetails = JSON.parse(this.activatedRoute.snapshot.params['studentDetails']);
          this.showStudentListSelect = false;
+         this.getBooksForStudent(this.studentDetails._id);
       }
    }
 
@@ -51,8 +52,12 @@ export class StudentDetailsComponent implements OnInit {
     * Function setting the studentDetails, after studentName value changes in dropdown
     */
    selectedStudentChange() {
+      this.studentDetails._id = this.student._id;
       this.studentDetails.rollNo = this.student.rollNo;
       this.studentDetails.class = this.student.class;
+      if (!this.showAssignBooksSection) {
+         this.getBooksForStudent(this.studentDetails._id);
+      }
    }
 
    /**
@@ -63,7 +68,7 @@ export class StudentDetailsComponent implements OnInit {
          this.studentDetailsService.assignBooks(this.student, this.books).subscribe(response => {
             if (response.code === 'R00') {
                this.showAssignBooksSection = false;
-               this.getBooksForStudent();
+               this.getBooksForStudent(this.student._id);
             }
          });
       }
@@ -72,10 +77,9 @@ export class StudentDetailsComponent implements OnInit {
    /**
     * Function fetching the complete list of books for the student
     */
-   getBooksForStudent() {
-      this.studentDetailsService.getBooksListForStudent(this.student._id).subscribe(response => {
+   getBooksForStudent(id: string) {
+      this.studentDetailsService.getBooksListForStudent(id).subscribe(response => {
          this.studentBooks = response.books;
-         console.log(this.studentBooks);
       });
    }
 }
