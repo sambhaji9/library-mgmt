@@ -21,7 +21,7 @@
    </table>
 </div>
 
-<div>
+<div *ngIf="showAssignBooksSection">
    <button class="btn btn-primary btn-sm ml-3" *ngIf="showStudentListSelect" (click)="assignBooks()">
       Assign Books
    </button>
@@ -37,4 +37,19 @@
          </tr>
       </table>
    </div>
+</div>
+
+<div *ngIf="!showAssignBooksSection">
+   <table class="table table-bordered books-table">
+      <tr class="text-center">
+         <th>#</th>
+         <th>Book Name</th>
+         <th>Date</th>
+      </tr>
+      <tr *ngFor="let book of studentBooks; index as i">
+         <td>{{i + 1}}</td>
+         <td>{{book.bookName}}</td>
+         <td>{{book.bookIssueDate}}</td>
+      </tr>
+   </table>
 </div>

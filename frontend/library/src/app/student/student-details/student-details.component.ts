@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { IBook } from 'src/app/books/books-list/books-list.model';
 import { IStudentForm } from '../student-form/student-form.model';
 import { StudentListService } from '../student-list/student-list.service';
+import { StudentDetailsService } from './student-details.service';
 
 @Component({
    selector: 'app-student-details',
@@ -15,8 +16,10 @@ export class StudentDetailsComponent implements OnInit {
    showStudentListSelect = false;
    studentList: IStudentForm[];
    student: IStudentForm;
+   showAssignBooksSection = false;
+   studentBooks = [];
 
-   constructor(private activatedRoute: ActivatedRoute, private studentListService: StudentListService) { }
+   constructor(private activatedRoute: ActivatedRoute, private studentListService: StudentListService, private studentDetailsService: StudentDetailsService) { }
 
    ngOnInit() {
       let paramKeys = Object.keys(this.activatedRoute.snapshot.params);
@@ -37,7 +40,7 @@ export class StudentDetailsComponent implements OnInit {
             rollNo: '',
             class: ''
          };
-
+         this.showAssignBooksSection = true;
       } else {
          this.studentDetails = JSON.parse(this.activatedRoute.snapshot.params['studentDetails']);
          this.showStudentListSelect = false;
@@ -56,7 +59,23 @@ export class StudentDetailsComponent implements OnInit {
     * Function assigning the books the student
     */
    assignBooks() {
-      console.log(this.student);
-      console.log(this.books);
+      if (typeof this.student !== 'undefined' && typeof this.books !== 'undefined') {
+         this.studentDetailsService.assignBooks(this.student, this.books).subscribe(response => {
+            if (response.code === 'R00') {
+               this.showAssignBooksSection = false;
+               this.getBooksForStudent();
+            }
+         });
+      }
+   }
+
+   /**
+    * Function fetching the complete list of books for the student
+    */
+   getBooksForStudent() {
+      this.studentDetailsService.getBooksListForStudent(this.student._id).subscribe(response => {
+         this.studentBooks = response.books;
+         console.log(this.studentBooks);
+      });
    }
 }
