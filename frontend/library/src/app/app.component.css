@@ -23,3 +23,15 @@ img {
 a {
     margin-left: 20px;
 }
+
+.app-name {
+    color: #0000b3;
+    letter-spacing: .75px;
+    font-weight: 500;
+}
+
+.links {
+    color: #0000b3;
+    letter-spacing: .50px;
+    font-weight: 500;
+}
