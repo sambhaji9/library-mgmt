@@ -27,6 +27,21 @@ export class StudentDetailsService {
    }
 
    /**
+    * Function returning the books assigned to the student
+    * @param studentId
+    * @param books 
+    */
+   returnStudentBooks(studentId, books): Observable<IResponse> {
+      let httpParams = new HttpParams();
+      httpParams= httpParams.append('data', JSON.stringify({
+         'id': studentId,
+         'books': books
+      }));
+
+      return this.httpClient.post<IResponse>(environment.url.concat(environment.returnBooks), {params: httpParams});
+   }
+
+   /**
     * Function getting the books list are assigned to the student
     * @param studentId 
     */

@@ -45,11 +45,15 @@
          <th>#</th>
          <th>Book Name</th>
          <th>Date</th>
+         <th>Actions</th>
       </tr>
       <tr *ngFor="let book of studentBooks; index as i">
          <td class="text-center">{{i + 1}}</td>
          <td>{{book.bookName}}</td>
          <td class="text-center">{{book.bookIssueDate}}</td>
+         <td class="text-center">
+            <button class="btn btn-sm btn-secondary" (click)="submitBooks(book)">Return</button>
+         </td>
       </tr>
    </table>
 </div>

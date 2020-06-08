@@ -222,6 +222,62 @@ app.post('/assignBooks', function (request, response) {
    });
 });
 
+app.post("/returnBooks", function(request, response) {
+   var query = JSON.parse(request.body.params.updates[0].value);
+   var studentId = query.id;
+   var books = query.books;
+
+   mongoClient.connect(url, function(err, database) {
+      if (err) throw err;
+
+      var dbo = database.db(databaseName);
+      dbo.collection("student").findOne({"_id": ObjectID(studentId)}, function(err, results) {
+         if (err) throw err;
+
+         // Iterate over the array and find the matching book, and remove it from the array
+         if (results.books && results.books.length > 0) {
+            for (var i = 0; i < results.books.length; i++) {
+               if (results.books[i].bookId === books.bookId) {
+                  results.books.splice(i, 1);
+               }
+            }
+         }
+
+         // Update the books in the student collection
+         dbo.collection("student").updateOne(
+            {"_id": ObjectID(studentId)},
+            {
+               $set: {
+                  books: results.books
+               }
+            }, function(err, results) {
+               if (err) return err;
+               console.log(results.modifiedCount + " documents updated successfully");
+               
+               response.status(200).json({
+                  message: results.modifiedCount + " documents updated successfully",
+                  code: "R00"
+               });
+            });
+
+         // update the books document
+         dbo.collection(books.bookDatabaseName).findOne({"_id": ObjectID(books.bookId)}, function(err, result) {
+            if (err) throw err;
+
+            dbo.collection(books.bookDatabaseName).updateOne(
+               {"_id": ObjectID(books.bookId)},
+               {
+                  $set: {
+                     studentId: "",
+                     availability: true
+                  }
+               });
+         });
+      });
+   });
+   
+});
+
 app.get('/booksList', function (request, response) {
    var studentId = request.query.id;
 
