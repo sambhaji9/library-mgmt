@@ -16,7 +16,8 @@ export const environment = {
 	updateStudent: 'updateStudent',
 	deleteStudent: 'deleteStudent',
 	assignBooks: 'assignBooks',
-	booksList: 'booksList'
+	booksList: 'booksList',
+	returnBooks: 'returnBooks'
 };
 
 /*

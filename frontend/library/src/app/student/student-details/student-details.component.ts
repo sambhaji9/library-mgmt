@@ -82,4 +82,16 @@ export class StudentDetailsComponent implements OnInit {
          this.studentBooks = response.books;
       });
    }
+
+   /**
+    * Function returning the books assigned to the student
+    * @param book
+    */
+   submitBooks(book) {
+      this.studentDetailsService.returnStudentBooks(this.studentDetails._id, book).subscribe(response => {
+         if (response.code === 'R00') {
+            this.getBooksForStudent(this.studentDetails._id);
+         }
+      });
+   }
 }
