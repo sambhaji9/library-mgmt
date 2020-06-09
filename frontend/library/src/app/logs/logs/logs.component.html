@@ -1,18 +1,18 @@
 <div>
    <table class="table table-bordered logs-table">
-      <tr>
+      <tr class="text-center">
          <th>#</th>
          <th>Book Name</th>
          <th>Action/Direction</th>
          <th>Student Name</th>
          <th>Date</th>
       </tr>
-      <tr>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
+      <tr *ngFor="let log of logs; index as i">
+         <td class="text-center">{{i + 1}}</td>
+         <td>{{log.bookName}}</td>
+         <td class="text-center">{{log.action}}</td>
+         <td>{{log.studentName}}</td>
+         <td class="text-center">{{log.date}}</td>
       </tr>
    </table>
 </div>

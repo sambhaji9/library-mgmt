@@ -314,6 +314,20 @@ app.get('/booksList', function (request, response) {
    });
 });
 
+app.get("/logs", function (request, response) {
+   mongoClient.connect(url, function (err, database) {
+      if (err) throw err;
+
+      var dbo = database.db(databaseName);
+      dbo.collection('logs').find({}).toArray(function (err, results) {
+         if (err) throw err;
+
+         response.status(200).json(results);
+         response.end();
+      });
+   });
+});
+
 app.listen(3000, function () {
    console.log("Server stated successfully");
 });
