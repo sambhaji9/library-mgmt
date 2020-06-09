@@ -193,16 +193,26 @@ app.post('/assignBooks', function (request, response) {
                bookIssueDate: books[i].date
             });
 
+            // update the respective subject collection
             dbo.collection(updatedCollection).updateOne(
-               {"_id": ObjectID(books[i]._id)},
+               { "_id": ObjectID(books[i]._id) },
                {
                   $set: {
                      studentId: studentId,
                      availability: false
                   }
                });
+
+            // prepare the object and insert in the logs collection
+            dbo.collection("logs").insertOne({
+               bookName: books[i].name,
+               action: "assigned to",
+               studentName: results.name,
+               date: "on " + new Date().toLocaleDateString()
+            });
          }
 
+         // update the respective student and assign the books in the collection
          dbo.collection("student").updateOne(
             { "_id": ObjectID(studentId) },
             {
@@ -222,16 +232,16 @@ app.post('/assignBooks', function (request, response) {
    });
 });
 
-app.post("/returnBooks", function(request, response) {
+app.post("/returnBooks", function (request, response) {
    var query = JSON.parse(request.body.params.updates[0].value);
    var studentId = query.id;
    var books = query.books;
 
-   mongoClient.connect(url, function(err, database) {
+   mongoClient.connect(url, function (err, database) {
       if (err) throw err;
 
       var dbo = database.db(databaseName);
-      dbo.collection("student").findOne({"_id": ObjectID(studentId)}, function(err, results) {
+      dbo.collection("student").findOne({ "_id": ObjectID(studentId) }, function (err, results) {
          if (err) throw err;
 
          // Iterate over the array and find the matching book, and remove it from the array
@@ -245,15 +255,15 @@ app.post("/returnBooks", function(request, response) {
 
          // Update the books in the student collection
          dbo.collection("student").updateOne(
-            {"_id": ObjectID(studentId)},
+            { "_id": ObjectID(studentId) },
             {
                $set: {
                   books: results.books
                }
-            }, function(err, results) {
+            }, function (err, results) {
                if (err) return err;
                console.log(results.modifiedCount + " documents updated successfully");
-               
+
                response.status(200).json({
                   message: results.modifiedCount + " documents updated successfully",
                   code: "R00"
@@ -261,11 +271,11 @@ app.post("/returnBooks", function(request, response) {
             });
 
          // update the books document
-         dbo.collection(books.bookDatabaseName).findOne({"_id": ObjectID(books.bookId)}, function(err, result) {
+         dbo.collection(books.bookDatabaseName).findOne({ "_id": ObjectID(books.bookId) }, function (err, result) {
             if (err) throw err;
 
             dbo.collection(books.bookDatabaseName).updateOne(
-               {"_id": ObjectID(books.bookId)},
+               { "_id": ObjectID(books.bookId) },
                {
                   $set: {
                      studentId: "",
@@ -273,9 +283,19 @@ app.post("/returnBooks", function(request, response) {
                   }
                });
          });
+
+         dbo.collection("logs").insertOne({
+            bookName: books.bookName,
+            action: "returned by",
+            studentName: results.name,
+            date: "on " + new Date().toLocaleDateString()
+         }, function (err, results) {
+            console.log(results.insertedCount + " documents inserted successfully");
+         });
+
       });
    });
-   
+
 });
 
 app.get('/booksList', function (request, response) {
