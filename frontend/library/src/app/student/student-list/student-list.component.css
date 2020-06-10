@@ -1,6 +1,5 @@
 .btn-new {
     margin-left: 15px;
-    margin-top: 15px;
 }
 
 a {
@@ -27,3 +26,6 @@ img {
  td {
     color: #212529;
  }
+.search-div {
+    margin: 20px;
+}
