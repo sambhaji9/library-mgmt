@@ -4,6 +4,7 @@ import { StudentListComponent } from './student-list/student-list.component';
 import { StudentDetailsComponent } from './student-details/student-details.component';
 import { StudentFormComponent } from './student-form/student-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UtilityPipesModule } from '../utility-pipes/utility-pipes.module';
 
 @NgModule({
 	declarations: [
@@ -14,7 +15,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 	imports: [
 		CommonModule,
 		FormsModule,
-		ReactiveFormsModule
+		ReactiveFormsModule,
+		UtilityPipesModule
 	]
 })
 export class StudentModule { }
