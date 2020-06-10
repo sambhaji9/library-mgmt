@@ -1,6 +1,5 @@
 .btn-new {
     margin-left: 15px;
-    margin-top: 15px;
 }
 
 a {
@@ -13,4 +12,8 @@ img {
 
 .alert-box {
     margin: 15px;
+}
+
+.search-div {
+    margin: 20px;
 }
