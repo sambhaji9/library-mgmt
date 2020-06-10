@@ -14,3 +14,16 @@ img {
 .alert-box {
     margin: 15px;
 }
+
+.student-table {
+    font-size: 13px;
+    color: #212529;
+ }
+ 
+ th {
+    font-weight: 500;
+ }
+ 
+ td {
+    color: #212529;
+ }

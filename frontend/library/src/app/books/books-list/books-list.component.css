@@ -1,8 +1,17 @@
 .books-table {
 	margin: 20px;
 	width: auto;
-	font-size: 14px;
+	font-size: 13px;
+	color: #212529;
 }
+ 
+ th {
+	font-weight: 500;
+ }
+ 
+ td {
+	color: #212529;
+ }
 
 .subject-header {
 	margin: 20px;
