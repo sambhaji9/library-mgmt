@@ -11,6 +11,10 @@
 	<ul class="list-group">
 		<li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let subjectArea of (subjectAreaList | searchFilter: searchName)" (click)="goToBooksList(subjectArea)">
 			{{subjectArea.name}}
+
+			<span>
+				<img src="../../../assets/navigate_next-black-24dp.svg" alt="">
+			</span>
 		</li>
 	</ul>
 </div>

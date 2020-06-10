@@ -15,15 +15,15 @@
 </div>
 
 <table class="table table-bordered table-hover books-table">
-	<tr>
-		<th></th>
+	<tr class="text-center">
+		<th>#</th>
 		<th>Name</th>
 		<th>Description</th>
 		<th>Language</th>
 		<th>Availability</th>
 	</tr>
 	<tr *ngFor="let book of (booksList | searchFilter: searchName)">
-		<td style="text-align: center;"><input type="checkbox" [disabled]="isDisabled(book)"
+		<td class="text-center"><input type="checkbox" [disabled]="isDisabled(book)"
 				(change)="onChange(book, $event.target.checked)" /></td>
 		<td>{{book.name}}</td>
 		<td style="width: 40%">{{book.description}}</td>
