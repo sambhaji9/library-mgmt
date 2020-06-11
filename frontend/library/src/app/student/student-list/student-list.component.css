@@ -1,31 +1,32 @@
 .btn-new {
-    margin-left: 15px;
+   margin-left: 15px;
 }
 
 a {
-    color: #ffffff;
+   color: #ffffff;
 }
 
 img {
-    cursor: pointer;
+   cursor: pointer;
 }
 
 .alert-box {
-    margin: 15px;
+   margin: 15px;
 }
 
 .student-table {
-    font-size: 13px;
-    color: #212529;
- }
- 
- th {
-    font-weight: 500;
- }
- 
- td {
-    color: #212529;
- }
+   font-size: 13px;
+   color: #212529;
+}
+
+th {
+   font-weight: 500;
+}
+
+td {
+   color: #212529;
+}
+
 .search-div {
-    margin: 20px;
+   margin: 20px;
 }
