@@ -9,7 +9,7 @@ import { ILogs } from './logs.model';
 })
 export class LogsComponent implements OnInit {
 
-   logs: ILogs[] = [];
+   logs: ILogs[];
 
    constructor(private logService: LogsService) { }
 

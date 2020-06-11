@@ -1,18 +1,24 @@
 <div>
-   <table class="table table-bordered table-hover logs-table">
-      <tr class="text-center">
-         <th>#</th>
-         <th>Book Name</th>
-         <th>Action/Direction</th>
-         <th>Student Name</th>
-         <th>Date</th>
-      </tr>
-      <tr *ngFor="let log of logs; index as i">
-         <td class="text-center">{{i + 1}}</td>
-         <td>{{log.bookName}}</td>
-         <td class="text-center">{{log.action}}</td>
-         <td>{{log.studentName}}</td>
-         <td class="text-center">{{log.date}}</td>
-      </tr>
-   </table>
+   <div class="form-inline search-div">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" [(ngModel)]="searchName" aria-label="Search">
+   </div>
+
+   <div>
+      <table class="table table-bordered table-hover logs-table">
+         <tr class="text-center">
+            <th>#</th>
+            <th>Book Name</th>
+            <th>Action/Direction</th>
+            <th>Student Name</th>
+            <th>Date</th>
+         </tr>
+         <tr *ngFor="let log of (logs | searchFilter: searchName); index as i">
+            <td class="text-center">{{i + 1}}</td>
+            <td>{{log.bookName}}</td>
+            <td class="text-center">{{log.action}}</td>
+            <td>{{log.studentName}}</td>
+            <td class="text-center">{{log.date}}</td>
+         </tr>
+      </table>
+   </div>
 </div>
