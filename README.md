@@ -30,3 +30,34 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 **server**
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+## Screenshots
+**Home**
+![Screenshot](./screenshots/1-home.png)<br><br>
+
+**New Subject Area**
+![Screenshot](./screenshots/2-new-subject-area-form.png)<br><br>
+
+**Books List**
+![Screenshot](./screenshots/3-books-list.png)<br><br>
+
+**Assign Books**
+![Screenshot](./screenshots/4-assign-books.png)<br><br>
+
+**New Books Form**
+![Screenshot](./screenshots/5-new-books-form.png)<br><br>
+
+**Student List**
+![Screenshot](./screenshots/6-student-list.png)<br><br>
+
+**New Student List**
+![Screenshot](./screenshots/7-new-student-form.png)<br><br>
+
+**Student Books Details**
+![Screenshot](./screenshots/8-student-books-details.png)<br><br>
+
+**Student Books Assignment**
+![Screenshot](./screenshots/9-student-books-assignment.png)<br><br>
+
+**Logs**
+![Screenshot](./screenshots/10-logs.png)<br><br>
