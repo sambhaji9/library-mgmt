@@ -33,31 +33,31 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ## Screenshots
 **Home**
-![Screenshot](./screenshots/1-home.png)<br><br>
+![Screenshot](https://github.com/sambhaji9/library-mgmt/blob/master/screenshots/1-home.png)<br><br>
 
 **New Subject Area**
-![Screenshot](./screenshots/2-new-subject-area-form.png)<br><br>
+![Screenshot](https://github.com/sambhaji9/library-mgmt/blob/master/screenshots/2-new-subject-area-form.png)<br><br>
 
 **Books List**
-![Screenshot](./screenshots/3-books-list.png)<br><br>
+![Screenshot](https://github.com/sambhaji9/library-mgmt/blob/master/screenshots/3-books-list.png)<br><br>
 
 **Assign Books**
-![Screenshot](./screenshots/4-assign-books.png)<br><br>
+![Screenshot](https://github.com/sambhaji9/library-mgmt/blob/master/screenshots/4-assign-books.png)<br><br>
 
 **New Books Form**
-![Screenshot](./screenshots/5-new-books-form.png)<br><br>
+![Screenshot](https://github.com/sambhaji9/library-mgmt/blob/master/screenshots/5-new-books-form.png)<br><br>
 
 **Student List**
-![Screenshot](./screenshots/6-student-list.png)<br><br>
+![Screenshot](https://github.com/sambhaji9/library-mgmt/blob/master/screenshots/6-student-list.png)<br><br>
 
 **New Student List**
-![Screenshot](./screenshots/7-new-student-form.png)<br><br>
+![Screenshot](https://github.com/sambhaji9/library-mgmt/blob/master/screenshots/7-new-student-form.png)<br><br>
 
 **Student Books Details**
-![Screenshot](./screenshots/8-student-books-details.png)<br><br>
+![Screenshot](https://github.com/sambhaji9/library-mgmt/blob/master/screenshots/8-student-books-details.png)<br><br>
 
 **Student Books Assignment**
-![Screenshot](./screenshots/9-student-books-assignment.png)<br><br>
+![Screenshot](https://github.com/sambhaji9/library-mgmt/blob/master/screenshots/9-student-books-assignment.png)<br><br>
 
 **Logs**
-![Screenshot](./screenshots/10-logs.png)<br><br>
+![Screenshot](https://github.com/sambhaji9/library-mgmt/blob/master/screenshots/10-logs.png)<br><br>
