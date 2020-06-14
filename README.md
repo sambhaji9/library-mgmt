@@ -45,19 +45,19 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 ![Screenshot](https://github.com/sambhaji9/library-mgmt/blob/master/screenshots/4-assign-books.png)<br><br>
 
 **New Books Form**
-![Screenshot](https://github.com/sambhaji9/library-mgmt/blob/master/screenshots/5-new-books-form.png)<br><br>
+![Screenshot](https://github.com/sambhaji9/library-mgmt/blob/master/screenshots/5-new-books-form.PNG)<br><br>
 
 **Student List**
-![Screenshot](https://github.com/sambhaji9/library-mgmt/blob/master/screenshots/6-student-list.png)<br><br>
+![Screenshot](https://github.com/sambhaji9/library-mgmt/blob/master/screenshots/6-student-list.PNG)<br><br>
 
 **New Student List**
-![Screenshot](https://github.com/sambhaji9/library-mgmt/blob/master/screenshots/7-new-student-form.png)<br><br>
+![Screenshot](https://github.com/sambhaji9/library-mgmt/blob/master/screenshots/7-new-student-form.PNG)<br><br>
 
 **Student Books Details**
-![Screenshot](https://github.com/sambhaji9/library-mgmt/blob/master/screenshots/8-student-books-details.png)<br><br>
+![Screenshot](https://github.com/sambhaji9/library-mgmt/blob/master/screenshots/8-student-books-details.PNG)<br><br>
 
 **Student Books Assignment**
-![Screenshot](https://github.com/sambhaji9/library-mgmt/blob/master/screenshots/9-student-books-assignment.png)<br><br>
+![Screenshot](https://github.com/sambhaji9/library-mgmt/blob/master/screenshots/9-student-books-assignment.PNG)<br><br>
 
 **Logs**
-![Screenshot](https://github.com/sambhaji9/library-mgmt/blob/master/screenshots/10-logs.png)<br><br>
+![Screenshot](https://github.com/sambhaji9/library-mgmt/blob/master/screenshots/10-logs.PNG)<br><br>
