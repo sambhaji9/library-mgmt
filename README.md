@@ -33,31 +33,61 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ## Screenshots
 **Home**
-![Screenshot](https://github.com/sambhaji9/library-mgmt/blob/master/screenshots/1-home.png)<br><br>
+
+<p>
+    <img src="./screenshots/1-home.png"/>
+</p>
 
 **New Subject Area**
-![Screenshot](https://github.com/sambhaji9/library-mgmt/blob/master/screenshots/2-new-subject-area-form.png)<br><br>
+
+<p>
+    <img src="./screenshots/2-new-subject-area-form.png"/>
+</p>
 
 **Books List**
-![Screenshot](https://github.com/sambhaji9/library-mgmt/blob/master/screenshots/3-books-list.png)<br><br>
+
+<p>
+    <img src="./screenshots/3-books-list.png"/>
+</p>
 
 **Assign Books**
-![Screenshot](https://github.com/sambhaji9/library-mgmt/blob/master/screenshots/4-assign-books.png)<br><br>
+
+<p>
+    <img src="./screenshots/4-assign-books.png"/>
+</p>
 
 **New Books Form**
-![Screenshot](https://github.com/sambhaji9/library-mgmt/blob/master/screenshots/5-new-books-form.PNG)<br><br>
+
+<p>
+    <img src="./screenshots/5-new-books-form.PNG"/>
+</p>
 
 **Student List**
-![Screenshot](https://github.com/sambhaji9/library-mgmt/blob/master/screenshots/6-student-list.PNG)<br><br>
+
+<p>
+    <img src="./screenshots/6-student-list.PNG"/>
+</p>
 
 **New Student List**
-![Screenshot](https://github.com/sambhaji9/library-mgmt/blob/master/screenshots/7-new-student-form.PNG)<br><br>
+
+<p>
+    <img src="./screenshots/7-new-student-form.PNG"/>
+</p>
 
 **Student Books Details**
-![Screenshot](https://github.com/sambhaji9/library-mgmt/blob/master/screenshots/8-student-books-details.PNG)<br><br>
+
+<p>
+    <img src="./screenshots/8-student-books-details.PNG"/>
+</p>
 
 **Student Books Assignment**
-![Screenshot](https://github.com/sambhaji9/library-mgmt/blob/master/screenshots/9-student-books-assignment.PNG)<br><br>
+
+<p>
+    <img src="./screenshots/9-student-books-assignment.PNG"/>
+</p>
 
 **Logs**
-![Screenshot](https://github.com/sambhaji9/library-mgmt/blob/master/screenshots/10-logs.PNG)<br><br>
+
+<p>
+    <img src="./screenshots/10-logs.PNG"/>
+</p>
