@@ -91,3 +91,6 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 <p>
     <img src="https://github.com/sambhaji9/library-mgmt/blob/master/screenshots/10-logs.PNG"/>
 </p>
+
+## List of books name
+Book names were adopted from this Wiki link: https://en.wikipedia.org/wiki/List_of_online_encyclopedias
